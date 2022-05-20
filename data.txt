@@ -1,0 +1,7 @@
+cs1030 Introduction to Computers Grade:3.2 Credit Hours: 2.0
+cs1400 Introduction to Programming Grade:3.6 Credit Hours: 4.0
+cs1410 C++ Programming Grade:2.6 Credit Hours: 4.0
+cs2420 Introduction to Data Structures Grade:3.2 Credit Hours: 4.0
+cs2810 Computer Architecture Grade:3.8 Credit Hours: 3.0
+
+Cumulative GPA: 3.259
