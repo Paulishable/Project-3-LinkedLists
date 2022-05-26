@@ -22,6 +22,7 @@ class CourseList(object):
     def __init__(self):
         self.head = None
         self.tail = None
+        self.current = self.head
 
     def insert(self, new_node):
         if self.head is None:
@@ -30,6 +31,8 @@ class CourseList(object):
         else:
             self.tail.next = new_node
             self.tail = new_node
+
+        self.insertion_sort_singly_linked()
 
     def list_size(self):
         count = 0
@@ -149,7 +152,7 @@ class CourseList(object):
             total_grade_points += float(curNode.get_data().credit_hr()) * float(curNode.get_data().grade())
             final_gpa = total_grade_points / total_credit_hrs
             curNode = curNode.next
-        print(f"Cumulative GPA: ",  "%.3f" % (final_gpa))
+        print(f"Cumulative GPA: ", "%.3f" % (final_gpa))
         return final_gpa
 
     def is_sorted(self):
@@ -163,8 +166,30 @@ class CourseList(object):
                     return False
         return True
 
-
     def add(self, d):
         new_node = Node(d, self.head)
         self.head = new_node
         self.size += 1
+
+    def __iter__(self):
+        self.current = self.head
+        return self
+
+    def __next__(self):
+        if self.current is None:
+            raise StopIteration
+        else:
+            item = self.current.get_data()
+            self.current = self.current.get_next()
+            return item
+
+    # def insert(self, new_node):
+    #     if self.head is None:
+    #         self.head = new_node
+    #         self.tail = new_node
+    #     elif self.tail is not None:
+    #         if new_node.get_data().number() < self.tail.get_data().number():
+    #             self.prepend(new_node)
+    #         else:
+    #             self.tail.next = new_node
+    #             self.tail = new_node
