@@ -25,6 +25,7 @@ with open("data.txt", "r") as data_file:
 # course_list.insertion_sort_singly_linked()
 # print()
 course_list.__str__()
+course_list.calculate_gpa()
 #
 # print(f"Size of list is {course_list.list_size()}")
 #
@@ -35,7 +36,7 @@ course_list.__str__()
 #
 # #course_list.remove(2420)
 # course_list.__str__()
-print(f"Size of list is {course_list.list_size()}")
+print(f"Size of list is {course_list.size()}")
 #
 # print()
 # print()
@@ -46,7 +47,6 @@ print(f"Size of list is {course_list.list_size()}")
 #
 # print()
 # print()
-# course_list.calculate_gpa()
 # print()
 # print()
 #

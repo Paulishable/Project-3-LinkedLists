@@ -18,7 +18,6 @@ class Node(object):
 
 
 class CourseList(object):
-
     def __init__(self):
         self.head = None
         self.tail = None
@@ -34,7 +33,7 @@ class CourseList(object):
 
         self.insertion_sort_singly_linked()
 
-    def list_size(self):
+    def size(self):
         count = 0
         curNode = self.head  # Start at head
         while curNode is not None:
@@ -147,12 +146,13 @@ class CourseList(object):
         curNode = self.head  # Start at head
         total_credit_hrs = float(0.0)
         total_grade_points = float(0.0)
+        final_gpa = 0.0
         while curNode is not None:
             total_credit_hrs += float(curNode.get_data().credit_hr())
             total_grade_points += float(curNode.get_data().credit_hr()) * float(curNode.get_data().grade())
             final_gpa = total_grade_points / total_credit_hrs
             curNode = curNode.next
-        print(f"Cumulative GPA: ", "%.3f" % (final_gpa))
+        print(f"Cumulative GPA: ", "%.3f" % final_gpa)
         return final_gpa
 
     def is_sorted(self):
