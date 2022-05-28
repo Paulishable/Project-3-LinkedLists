@@ -20,3 +20,16 @@ with open("data.txt", "r", encoding="utf-8") as data_file:
         course_list.insert(this_node)
 
     data_file.close()
+
+course_list.__str__()
+course_list.calculate_gpa()
+
+course_list.remove(2420)
+
+print()
+
+course_list.__str__()
+print()
+
+print(course_list.find(1400))
+
