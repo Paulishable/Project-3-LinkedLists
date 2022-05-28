@@ -1,3 +1,4 @@
+
 class Node(object):
 
     def __init__(self, d, n=None):
@@ -72,20 +73,22 @@ class CourseList(object):
         while this_node:
             if str(this_node.get_data().number()) == str(d):
                 if prev_node:
-                    prev_node.set_next(this_node.get_next())
+                    prev_node.set_next(this_node.next)
                 else:
-                    self.head = this_node.get_next()
+                    self.head = this_node.next
                 return True  # data removed
             else:
                 prev_node = this_node
-                this_node = this_node.get_next()
+                this_node = this_node.next
         return False  # data not found
 
-    def remove_all(self):
-        curNode = self.head  # Start at head
-        while curNode is not None:
-            self.remove(curNode.get_data().number())
-            curNode = curNode.next
+    def remove_all(self, course_number):
+        """Remove all instances of the course number"""
+        curr_node = self.head
+        while curr_node is not None:
+            if str(curr_node.data.number()) == str(course_number):
+                self.remove(curr_node.data.number())
+            curr_node = curr_node.next
 
     def find(self, d):
         this_node = self.head
@@ -93,7 +96,7 @@ class CourseList(object):
             if str(this_node.get_data().number()) == str(d):
                 return this_node.get_data()
             else:
-                this_node = this_node.get_next()
+                this_node = this_node.next
         return -1
 
     def prepend(self, new_node):
@@ -179,8 +182,8 @@ class CourseList(object):
         if self.current is None:
             raise StopIteration
         else:
-            item = self.current.get_data()
-            self.current = self.current.get_next()
+            item = self.current.data
+            self.current = self.current.next
             return item
 
     # def insert(self, new_node):
